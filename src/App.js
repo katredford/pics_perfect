@@ -1,15 +1,15 @@
 
-  import pics from "./pics.json"
+  //import pics from "./pics.json"
 
 import { useState } from "react";
-import "./styles.css"
+import "./style.css"
 
-// const images = [
-//   "./images/IMG_3090.jpg",
-//   "./images/IMG_3902.jpg",
-//   "./images/IMG_3986.jpg",
-//   "./images/IMG_3987.jpg"
-// ]
+const pics = [
+  "http://localhost:3000/IMG_3090.jpg",
+  "http://localhost:3000/IMG_3902.jpg",
+  "http://localhost:3000/IMG_3986.jpg",
+  "http://localhost:3000/IMG_3987.jpg"
+]
 
 // const images = [
 //   "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fnasa-logo-web-rgb.png&imgrefurl=https%3A%2F%2Fwww.nasa.gov%2Faudience%2Fforstudents%2F5-8%2Ffeatures%2Fsymbols-of-nasa.html&tbnid=Fur10aRzlbXT_M&vet=12ahUKEwjUp4H6uYH9AhXuH94AHVjOCdYQMygBegUIARCOAQ..i&docid=ZGFOe91ARWuzMM&w=3400&h=1700&q=nasa&ved=2ahUKEwjUp4H6uYH9AhXuH94AHVjOCdYQMygBegUIARCOAQ",
@@ -53,12 +53,20 @@ const [picture, setPicture] = useState(0)
           ⮕
         </div>
         <div>
+          {/* pics.map(data => {
+    return (
+      <div key={data.id}>
+        <img src={data.pic} alt="image"></img>
+      </div>
+    )
+  }) */}
           {/* {pictos} */}
           {pics.map(
             (image, index) => 
-          picture === index && (
-            <div key={index} className="slide">
-              <img src={image.pic} alt="images" />
+              picture === index &&
+              (
+            <div key={picture} className="slide">
+              <img src={image} alt="images" />
             </div>
           )
         
