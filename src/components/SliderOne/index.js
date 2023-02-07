@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./style.css"
-import Carousel from "./components/Carousel"
 
 const pics = [
-  { url: "http://localhost:3000/IMG_3090.jpg" },
-  {url: "http://localhost:3000/IMG_3902.jpg"},
-  {url: "http://localhost:3000/IMG_3986.jpg"},
-  { url: "http://localhost:3000/IMG_3987.jpg" }
+  "http://localhost:3000/IMG_3090.jpg",
+  "http://localhost:3000/IMG_3902.jpg",
+  "http://localhost:3000/IMG_3986.jpg",
+  "http://localhost:3000/IMG_3987.jpg"
 ]
 
 
@@ -22,11 +21,6 @@ const [picture, setPicture] = useState(0)
     setPicture(picture === 0 ? pics.length - 1 : picture - 1);
   }
   
-  const containerStyle = {
-    width: "500px",
-    height: "280px",
-    margin: "0 auto"
-  }
   return (
     <>
     <h2>Washington State</h2>
@@ -37,13 +31,21 @@ const [picture, setPicture] = useState(0)
         <div className="right-arrow" onClick={nextSlide}>
           ⮕
         </div>
-        <div style={containerStyle}>
+        <div>
      
-     <Carousel pics={pics} />
+          {pics.map(
+            (image, index) => 
+              picture === index &&
+              (
+            <div key={picture} className="slide">
+              <img src={image} alt="images" />
+            </div>
+          )
+        
+        )}
+       ""
         </div>
         </div>
     </>
   );
 }
-
-export default App;
