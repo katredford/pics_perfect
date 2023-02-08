@@ -39,10 +39,22 @@ const [index, setIndex] =useState(0)
     cursor: "pointer",
    }
   
+  function previous() {
+    const firstIndex = index === 0;
+    const newIndex = firstIndex ? pics.length - 1 : index - 1
+    setIndex(newIndex)
+  }
+
+   function next() {
+    const last = index === pics.length - 1;
+    const newIndex = last ? 0 : index + 1
+    setIndex(newIndex)
+  }
+  
   return (
     <div style={sliderStyles}>
-      <div style={lArrow}>←</div>
-      <div style={rArrow}>→</div>
+      <div style={lArrow} onClick={previous}>←</div>
+      <div style={rArrow} onClick={next}>→</div>
       <div
         style={picStyles}>
         
