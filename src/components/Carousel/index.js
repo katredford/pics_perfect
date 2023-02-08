@@ -39,6 +39,17 @@ const [index, setIndex] =useState(0)
     cursor: "pointer",
    }
   
+  const dotsContainerStyle = {
+    display: "flex",
+    justifyContent: "center"
+   }
+  
+  const dotStyle = {
+    margin: '0 3px',
+    cursor: "pointer",
+    fontSize: '20px'
+  }
+  
   function previous() {
     const firstIndex = index === 0;
     const newIndex = firstIndex ? pics.length - 1 : index - 1
@@ -51,14 +62,29 @@ const [index, setIndex] =useState(0)
     setIndex(newIndex)
   }
   
+  function goToSlide(index) {
+    setIndex(index)
+  }
+
+
   return (
     <div style={sliderStyles}>
       <div style={lArrow} onClick={previous}>←</div>
       <div style={rArrow} onClick={next}>→</div>
       <div
         style={picStyles}>
-        
-        </div>
+      </div>
+
+      <div style={dotsContainerStyle}>
+        {pics.map((pic, picIndex) => 
+          <div
+            key={picIndex}
+            style={dotStyle}
+            onClick={() => goToSlide(picIndex)}
+          >⇼
+          </div>
+        )}
+      </div>
     </div>
   )
 }
