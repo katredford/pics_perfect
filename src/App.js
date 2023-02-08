@@ -33,9 +33,11 @@ const [picture, setPicture] = useState(0)
       <div className="slider">
         <div className="left-arrow" onClick={prevSlide}>
           ⬅
+          ⇦
         </div>
         <div className="right-arrow" onClick={nextSlide}>
           ⮕
+          ⇨
         </div>
         <div style={containerStyle}>
      
